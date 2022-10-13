@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  php:
+    build: docker/php
+    volumes:
+      - ./:/project
+      - ./core/:/core
+      - ./app/:/app
+    working_dir: /project
+    ports:
+      - "8080:8080"
+    command: php -S 0.0.0.0:8080 -t /project
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=raffle123
+      - MYSQL_DATABASE=raffle_prize__db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    ports:
+      - "8082:3306"
+
+  phpmyadmin:
+    platform: linux/x86_64
+    image: phpmyadmin/phpmyadmin:latest
+    # Connect to "my-network" network, as defined below
+    environment:
+      PMA_HOST: mysql_db
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql_db

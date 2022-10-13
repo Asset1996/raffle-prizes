@@ -1,0 +1,25 @@
+{
+    "name": "raffle/prizes",
+    "type": "project",
+    "description": "Test task.",
+    "authors": [
+        {
+            "name": "Asset Khaitbay",
+            "email": "khaitbay96@gmail.com",
+            "role": "Backend developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "guzzle/guzzle": "^3.9",
+        "vlucas/phpdotenv": "^5.4",
+        "firebase/php-jwt": "^6.3",
+        "faapz/pdo": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Core\\": "Core/"
+        }
+    }
+}
