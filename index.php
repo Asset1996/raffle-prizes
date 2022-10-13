@@ -27,7 +27,7 @@ $app = new Core\Router();
 $app->post('/login', [Auth::class, 'login']);
 $app->get('/get-current-user', [User::class, 'getCurrentUser']);
 
-$app->get('/get_random_prize', [Prize::class, 'getRandomPrize']);
+$app->get('/get-random-prize', [Prize::class, 'getRandomPrize']);
 $app->post('/accept-prize', [Prize::class, 'acceptPrize']);
 $app->post('/reject-prize', [Prize::class, 'rejectPrize']);
 

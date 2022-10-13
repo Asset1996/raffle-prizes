@@ -43,4 +43,14 @@ class MoneyPrizeModel extends \App\Models\Prize\BasePrizeModel
         }
         return (int) $this->db->lastInsertId();
     }
+
+    /**
+     * Sends money to bank API.
+     *
+     * @param array $prizeData
+     * @return bool|int
+     */
+    public function send(array $prizeData){
+
+    }
 }
